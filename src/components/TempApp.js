@@ -21,7 +21,7 @@ const TempApp = () => {
   // When search renders useEffect works in
   useEffect(() => {
     const fetchApi = async () => {
-      const url = `http://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=ec95667ef545cb054ebd779e272fa5f4`;
+      const url = process.env.link || `http://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=ec95667ef545cb054ebd779e272fa5f4`;
       const response = await fetch(url);
       const resJson = await response.json();
 
@@ -99,7 +99,7 @@ const TempApp = () => {
 
         {/* for displaying icon */}
         {weather.main && (
-          <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} className="iconss" alt="" />
+          <img src= {process.env.img || `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} className="iconss" alt="" />
         )}
 
         {/* WAVES */}
